@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Assignment#4</title>
+</head>
+
+<body>
+
+<h1>Assignment#4</h1>
+<h2>Word Puzzle</h2>
+
+<div id='main'>
+    <div class='section'>
+        <h1 style="background-color: lightyellow; margin: 3%; text-align: center;">Wishing Fountain</h1>
+        <br>
+    </div>
+</div>
+
+<div id='sidebar'>
+    <form id='login'>
+        <div class='form-group'>
+            <label style="font-style: italic;";">
+                Name:
+            </label>
+            <input type='text' name='name'>
+        </div>
+        <div class='form-group'> 
+        <label style="font-style: italic;";>
+            Your wish:
+        </label>
+        <input type='wish' name='wish'>
+        </div>
+        <button id='submitBtn' type='submit' style="background-color:lightskyblue;">Make this wish</button>
+    
+             
+
+    </form>
+    <br>
+    <div id='answer'>
+    </div>
+</div>
+
+
+<script>
+    function sayHello() {
+     var name = document.forms[0].name.value;
+     var wish = document.forms[0].wish.value;
+     alert("Hello " + name + "! Welcome to Nan's magic world. Your wish is " + wish + '. Your wish will come true within 3 days!!!');
+    }
+    document.getElementById('submitBtn').addEventListener('click', sayHello);
+</script>
+
+
+</body>
+</html>
