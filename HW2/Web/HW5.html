@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html style="background-color:thistle;">
+
+<head>
+<title>Assignment#5</title>
+</head>
+
+<body>
+
+<h1>Assignment#5</h1>
+<h2 style= "text-align:center;italic;color:purple;font-size:xx-large;" >45个深圳旅游值得一去的景点</h2>
+
+<div class="select">
+  <select id="selecter">
+    <option value selected disabled>请选择分类方式</option>
+    <option value="0">按区分类</option>
+    <option value="1">按类型分类</option>
+    <option value="2">按评分排序</option>
+    <option value="3">按排名排序</option>   
+</select>
+</div>
+
+<div id="table" class="view">
+  <iframe class="airtable-embed" src="https://airtable.com/embed/shr0MC2osDP1SJEmm?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+</div>
+
+<script>
+    var select=document.getElementById("selecter");
+      select.onchange=function(){
+        var optionVal=select.value;
+        switch(optionVal){
+          case'0':
+            var area=document.getElementById("table");
+            area.innerHTML='<iframe class="airtable-embed" src="https://airtable.com/embed/shremHmato269M5gs?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+            break;
+          case'1':
+            var area=document.getElementById("table");
+            area.innerHTML='<iframe class="airtable-embed" src="https://airtable.com/embed/shr3lEma6ryoaQVop?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+            break;
+          case'2':
+            var area=document.getElementById("table");
+            area.innerHTML='<iframe class="airtable-embed" src="https://airtable.com/embed/shrAVZsKXBgq28EEL?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+            break;
+          case'3':
+            var area=document.getElementById("table");
+            area.innerHTML='<iframe class="airtable-embed" src="https://airtable.com/embed/shrjvlAHNVdOzU7wV?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+            break;
+        }
+    }
+</script>
+</div>
+
+
+</body>
+</html>
