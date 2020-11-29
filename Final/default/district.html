@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark"><a class="navbar-brand text-primary" href="#">
+      <b class="w-100 h-100 text-white"> Tavel in Shenzhen</b>
+    </a>
+    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar4">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="blank.html">主页</a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="blank的副本.html">景点</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="blank.html">关于</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="blank.html">联系我们<br></a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center my-3 mt-4" style="	background-image: url(img/unnamed.jpg);	background-position: bottom;	background-size: 100%;	background-repeat: repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-lg-5 col-md-7 col-10" style="">
+          <h1 class="text-white" style="	text-shadow: 0px 0px 4px black;">景点分布</h1>
+          <p class="mb-3 text-white">在不同的区中寻找你想去的景点</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="select">
+    <select id="selecter">
+      <option value="" selected="" disabled="">请选择区</option>
+      <option value="0">南山区</option>
+      <option value="1">福田区</option>
+      <option value="2">宝安区</option>
+      <option value="3">龙岗区</option>
+      <option value="4">龙华区</option>
+      <option value="5">盐田区</option>
+      <option value="6">大鹏新区</option>
+    </select>
+  </div>
+  <div id="table" class="view">
+    <iframe class="airtable-embed" src="https://airtable.com/embed/shr0MC2osDP1SJEmm?backgroundColor=blue&amp;viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+  </div>
+  <script style="">
+    var select = document.getElementById("selecter");
+    select.onchange = function() {
+      var optionVal = select.value;
+      switch (optionVal) {
+        case '0':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shrKRXzG3HIDrlhwh?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '1':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shrtrI9NPGqsKwXZc?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '2':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shrQvpLCawU2nf93v?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '3':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shrtObfU9oShvb9GL?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '4':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shrcACnq54RAVr4Rr?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '5':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shr2UobXf8jYaBC7M?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+        case '6':
+          var area = document.getElementById("table");
+          area.innerHTML = '<iframe class="airtable-embed" src="https://airtable.com/embed/shr7t5aT2uGX5gD1X?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>'
+          break;
+      }
+    }
+  </script>
+  <div class="py-5 text-center" style="	background-image: url(img/unnamed.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 p-3"></div>
+        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="blank的副本.html">Back<br></a> </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" style=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" style=""></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
