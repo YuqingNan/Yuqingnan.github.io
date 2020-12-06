@@ -2,14 +2,10 @@
 <html>
 
 <head>
-  <title>GetJSON</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
 </head>
 
 <body>
@@ -49,85 +45,12 @@
       </div>
     </div>
   </div>
-  <div class="text-center">
-    <button type="button" class="btn btn-warning" id="get_data">全部景点</button>
-    <button type="button" class="btn btn-warning" id="clear_tables">清除</button>
-  </div>
-  <div class="table-responsive">
-    <table id="table1" width="100%" class="table table-bordered"></table>
-  </div><!-- table responsive -->
-  <!-- end col -->
-  <!--end row -->
-  <!-- container -->
-  <script>
-    $(document).ready(function() {
-      $("button#get_data").click(function() {
-        var dataSet = [];
-        var items = [];
-        var i = 0;
-        $('.table-responsive').show();
-        var airtable_read_endpoint = "https://api.airtable.com/v0/app0tDXImGUd9BRB3/Places?api_key=keyGtn0l3PdDx1gDX";
-        $.getJSON(airtable_read_endpoint, function(result) {
-          $.each(result.records, function(key, value) {
-            items = [];
-            items.push(value.fields['景点']);
-            items.push(value.fields['区']);
-            items.push(value.fields['排名']);
-            items.push(value.fields['地址']);
-            items.push(value.fields['类型']);
-            items.push(value.fields['路线']);
-            items.push(value.fields['简介']);
-            dataSet.push(items);
-            console.log(items);
-          }); // end .each
-          console.log(dataSet);
-          $('#table1').DataTable({
-            data: dataSet,
-            retrieve: true,
-            columns: [{
-              title: "景点",
-              defaultContent: ""
-            }, {
-              title: "所属区",
-              defaultContent: ""
-            }, {
-              title: "排名",
-              defaultContent: ""
-            }, {
-              title: "地址",
-              defaultContent: ""
-            }, {
-              title: "类型",
-              defaultContent: ""
-            }, {
-              title: "路线",
-              defaultContent: ""
-            }, {
-              title: "简介",
-              defaultContent: ""
-            }, ]
-          });
-        }); // end .getJSON
-      }); // end button
-      $("button#clear_tables").click(function() {
-        // $('.table-responsive').toggle();
-        if ($.fn.dataTable.isDataTable('#table1')) {
-          $('#table1').DataTable().destroy();
-          $('#table1').empty();
-        }
-        if ($.fn.dataTable.isDataTable('#table2')) {
-          $('#table2').DataTable().destroy();
-          $('#table2').empty();
-        }
-      }); // end clear tables
-    }); // document ready
-  </script>
   <div class="pt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
           <div class="card"> <img class="card-img" src="img/深圳7.jpg" alt="Card image">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center" style=""></div>
+            <div class="card-img-overlay d-flex justify-content-center align-items-center"></div>
           </div>
         </div>
         <div class="col-md-3">
