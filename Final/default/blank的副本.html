@@ -2,10 +2,14 @@
 <html>
 
 <head>
+  <title>GetJSON</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="theme.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
 <body>
@@ -29,18 +33,101 @@
     <div class="container">
       <div class="row my-4">
         <div class="mx-auto col-lg-5 col-md-7 col-10" style="">
-          <h1 style="	text-shadow: 0px 0px 4px black;" class="text-white">景点分类</h1>
-          <p class="text-white">在不同的分类中寻找你想去的景点</p>
+          <h1 style="	text-shadow: 0px 0px 4px black;" class="text-white">深圳景点</h1>
+          <p class="text-white">45个深圳必去景点</p>
         </div>
       </div>
     </div>
   </div>
+  <div class="py-5 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="mb-3" contenteditable="true">深圳，简称“深”，别称鹏城，是广东省副省级市、计划单列市、超大城市，国务院批复确定的中国经济特区、全国性经济中心城市和国际化城市。“深圳”地名始见史籍于1410年（明永乐八年），于清朝初年建墟。当地方言俗称田野间的水沟为“圳”或“涌”。深圳正因其水泽密布，村落边有一条深水沟而得名。深圳的经济特区发展史虽只有40多年，拥有着6700多年的人类活动史（新石器时代中期就有土著居民繁衍生息在深圳土地上）有着6000多年的人类开发史和海洋经济发展史、1700多年的城市史、600多年的海防史、悠久的广府民系和客家移民史。</h4>
+          <h5 class="">如果您想浏览全部的景点，请点击全部景点查看全部景点，同时您可以搜索景点名称。如果您想按照分类寻找景点，请点击您感兴趣的分类键找到您心仪的景点。</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="button" class="btn btn-warning" id="get_data">全部景点</button>
+    <button type="button" class="btn btn-warning" id="clear_tables">清除</button>
+  </div>
+  <div class="table-responsive">
+    <table id="table1" width="100%" class="table table-bordered"></table>
+  </div><!-- table responsive -->
+  <!-- end col -->
+  <!--end row -->
+  <!-- container -->
+  <script>
+    $(document).ready(function() {
+      $("button#get_data").click(function() {
+        var dataSet = [];
+        var items = [];
+        var i = 0;
+        $('.table-responsive').show();
+        var airtable_read_endpoint = "https://api.airtable.com/v0/app0tDXImGUd9BRB3/Places?api_key=keyGtn0l3PdDx1gDX";
+        $.getJSON(airtable_read_endpoint, function(result) {
+          $.each(result.records, function(key, value) {
+            items = [];
+            items.push(value.fields['景点']);
+            items.push(value.fields['区']);
+            items.push(value.fields['排名']);
+            items.push(value.fields['地址']);
+            items.push(value.fields['类型']);
+            items.push(value.fields['路线']);
+            items.push(value.fields['简介']);
+            dataSet.push(items);
+            console.log(items);
+          }); // end .each
+          console.log(dataSet);
+          $('#table1').DataTable({
+            data: dataSet,
+            retrieve: true,
+            columns: [{
+              title: "景点",
+              defaultContent: ""
+            }, {
+              title: "所属区",
+              defaultContent: ""
+            }, {
+              title: "排名",
+              defaultContent: ""
+            }, {
+              title: "地址",
+              defaultContent: ""
+            }, {
+              title: "类型",
+              defaultContent: ""
+            }, {
+              title: "路线",
+              defaultContent: ""
+            }, {
+              title: "简介",
+              defaultContent: ""
+            }, ]
+          });
+        }); // end .getJSON
+      }); // end button
+      $("button#clear_tables").click(function() {
+        // $('.table-responsive').toggle();
+        if ($.fn.dataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
+          $('#table1').empty();
+        }
+        if ($.fn.dataTable.isDataTable('#table2')) {
+          $('#table2').DataTable().destroy();
+          $('#table2').empty();
+        }
+      }); // end clear tables
+    }); // document ready
+  </script>
   <div class="pt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
           <div class="card"> <img class="card-img" src="img/深圳7.jpg" alt="Card image">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center"></div>
+            <div class="card-img-overlay d-flex justify-content-center align-items-center" style=""></div>
           </div>
         </div>
         <div class="col-md-3">
